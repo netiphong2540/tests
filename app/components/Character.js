@@ -44,14 +44,12 @@ class Character extends React.Component {
     return (
       <div className='container'>
         <div className='profile-img'>
-          <a ref='magnificPopup' className='magnific-popup' href={'https://image.eveonline.com/Character/' + this.state.characterId + '_1024.jpg'}>
-            <img src={'https://image.eveonline.com/Character/' + this.state.characterId + '_256.jpg'} />
+          <a ref='magnificPopup' className='magnific-popup' href={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + this.state.name + '/hero-select-portrait.png'}>
+            <img src={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + this.state.name + '/hero-select-portrait.png'} />
           </a>
         </div>
         <div className='profile-info clearfix'>
           <h2><strong>{this.state.name}</strong></h2>
-          <h4 className='lead'>Race: <strong>{this.state.race}</strong></h4>
-          <h4 className='lead'>Bloodline: <strong>{this.state.bloodline}</strong></h4>
           <h4 className='lead'>type: <strong>{this.state.type}</strong></h4>
           <button className='btn btn-transparent'
                   onClick={CharacterActions.report.bind(this, this.state.characterId)}
