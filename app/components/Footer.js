@@ -28,7 +28,7 @@ class Footer extends React.Component {
       return (
         <li key={character.characterId}>
           <Link to={'/characters/' + character.characterId}>
-            <img className='thumb-md' src={''https://www.owfire.com/images/heroes/potrait/'+character.name+'.png'} />
+            <img className='thumb-md' src={'https://www.owfire.com/images/heroes/potrait/'+character.name+'.png'} />
           </Link>
         </li>
       );
