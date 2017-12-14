@@ -93,6 +93,7 @@ class Navbar extends React.Component {
             <li><Link to='/stats'>Stats</Link></li>
             <li><Link to='/top'>All Heroes</Link></li>
             <li><Link to='/add'>Add</Link></li>
+             <li><Link to='/Offense'>Offense</Link></li>
           </ul>
         </div>
       </nav>
