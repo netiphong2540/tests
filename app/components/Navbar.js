@@ -93,9 +93,9 @@ class Navbar extends React.Component {
             <li><Link to='/stats'>Stats</Link></li>
             <li><Link to='/top'>All Heroes</Link></li>
             <li><Link to='/Offense'>Offense</Link></li>
-            <li><Link to='/Offense'>Defense</Link></li>
-            <li><Link to='/Offense'>Tank</Link></li>
-            <li><Link to='/Offense'>Support</Link></li>
+            <li><Link to='/Defense'>Defense</Link></li>
+            <li><Link to='/Tank'>Tank</Link></li>
+            <li><Link to='/Support'>Support</Link></li>
             <li><Link to='/add'>Add</Link></li>
           </ul>
         </div>
