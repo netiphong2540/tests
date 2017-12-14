@@ -37,7 +37,7 @@ class CharacterList extends React.Component {
           <div className='media'>
             <span className='position pull-left'>{index + 1}</span>
             <div className='pull-left thumb-lg'>
-              <Link to={'/characters/' + character.name}>
+              <Link to={'/characters/' + character.characterId}>
                 <img className='media-object' src={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + character.name + '/hero-select-portrait.png'} />
               </Link>
             </div>
@@ -45,6 +45,8 @@ class CharacterList extends React.Component {
               <h4 className='media-heading'>
                 <Link to={'/characters/' + character.characterId}>{character.name}</Link>
               </h4>
+              <small>Type: <strong>{character.type}</strong></small>
+              <br />
               <small>Wins: <strong>{character.wins}</strong> Losses: <strong>{character.losses}</strong></small>
             </div>
           </div>
