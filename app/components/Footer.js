@@ -27,7 +27,7 @@ class Footer extends React.Component {
     let leaderboardCharacters = this.state.characters.map(function(character) {
       return (
         <li key={character.characterId}>
-          <Link to={'/characters/' + character.name}>
+          <Link to={'/characters/' + character.characterId}>
             <img className='thumb-md' src={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + character.name + '/hero-select-portrait.png'} />
           </Link>
         </li>
