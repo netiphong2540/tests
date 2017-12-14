@@ -35,7 +35,7 @@ class Home extends React.Component {
       return (
         <div key={character.characterId} className={index === 0 ? 'col-xs-6 col-sm-6 col-md-5 col-md-offset-1' : 'col-xs-6 col-sm-6 col-md-5'}>
           <div className='thumbnail fadeInUp animated'>
-            <img onClick={this.handleClick.bind(this, character)} src={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + character.name + '/hero-select-portrait.png'}/>
+            <img onClick={this.handleClick.bind(this, character)} src={'https://www.owfire.com/images/heroes/potrait/'+character.name+'.png'}/>
             <div className='caption text-center'>
               <ul className='list-inline'>
               </ul>
