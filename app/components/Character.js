@@ -44,8 +44,8 @@ class Character extends React.Component {
     return (
       <div className='container'>
         <div className='profile-img'>
-          <a ref='magnificPopup' className='magnific-popup' href={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + this.state.name + '/hero-select-portrait.png'}>
-            <img src={'https://d1u1mce87gyfbn.cloudfront.net/hero/' + this.state.name + '/hero-select-portrait.png'} />
+          <a ref='magnificPopup' className='magnific-popup' href={'https://www.owfire.com/images/heroes/potrait/'+this.state.name+'.png'}>
+            <img src={'https://www.owfire.com/images/heroes/potrait/'+this.state.name+'.png'} />
           </a>
         </div>
         <div className='profile-info clearfix'>
