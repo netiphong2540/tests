@@ -1,35 +1,71 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
-import 'antd/dist/antd.css';
-
-import Routes from './routes';
-
-const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:3000/graphql',
-});
-
-networkInterface.use([{
-  applyMiddleware(req, next) {
-    if (!req.options.headers) {
-      req.options.headers = {};
-    }
-    req.options.headers['x-token'] = localStorage.getItem('token');
-    req.options.headers['x-refresh-token'] = localStorage.getItem('refreshToken');
-    next();
+class Register extends React.Component {
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    isAdmin: false,
   }
-}]);
 
-const client = new ApolloClient({
-  networkInterface: networkInterface
-});
+  onChange = (e) => {
+    if (e.target.name === 'isAdmin') {
+      this.setState({
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    }
+  }
 
-const App = () => (
-  <ApolloProvider client={client}>
-    <Routes />
-  </ApolloProvider>
-);
+  onSubmit = async () => {
+    const response = await this.props.mutate({
+      variables: this.state,
+    });
+    console.log(response);
+  }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+  render() {
+    return (
+      <div>
+        <Input
+          name='username'
+          placeholder='Username'
+          onChange={e => this.onChange(e)}
+          value={this.state.username} />
+        <Input
+          name='email'
+          placeholder='Email'
+          onChange={e => this.onChange(e)}
+          value={this.state.email} />
+        <Input
+          name='password'
+          placeholder='Password'
+          type='password'
+          onChange={e => this.onChange(e)}
+          value={this.state.password} />
+        <Checkbox
+          name='isAdmin'
+          checked={this.state.isAdmin}
+          onChange={e => this.onChange(e)}
+        >
+          Admin?
+        </Checkbox>
+        <br />
+        <Button onClick={() => this.onSubmit()} type="primary">Register</Button>
+      </div>
+    );
+  }
+}
+
+const mutation = gql`
+mutation($username: String!, $email: String!, $password: String!, $isAdmin: Boolean) {
+	register(username: $username, email: $email, password: $password, isAdmin: $isAdmin) {
+	  id
+	} 
+}
+`;
+
+export default graphql(mutation)(Register);
