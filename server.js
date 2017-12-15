@@ -245,14 +245,10 @@ app.post('/api/characters', function(req, res, next) {
           if (err) return res.send(err);
           try {
             var name = parsedXml.eveapi.result[0].characterName[0];
-            var race = parsedXml.eveapi.result[0].race[0];
-            var bloodline = parsedXml.eveapi.result[0].bloodline[0];
 
             var character = new Character({
               characterId: characterId,
               name: name,
-              race: race,
-              bloodline: bloodline,
               type: type,
               random: [Math.random(), 0]
             });
