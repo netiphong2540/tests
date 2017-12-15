@@ -2,6 +2,9 @@
 @import '../../bower_components/toastr/toastr';
 @import (less) '../../bower_components/magnific-popup/dist/magnific-popup.css';
 
+/*
+ * Bootstrap overrides.
+ */
 @body-bg: #f0f3f4;
 @text-color: #58666f;
 @font-family-base: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -101,25 +104,29 @@ footer .thumb-md {
   border-left: 0;
 }
 
+/*
+ * Character profile page styles.
+ */
+
 .profile {
-  color: #353f44;
+  color: rgb(0, 0, 0);
   background-size: cover;
 }
 
-.profile.offense {
-  background-image: url('/img/offense.jpg');
+.profile.amarr {
+  background-image: url('/img/amarr_bg.jpg');
 }
 
-.profile.defense {
-  background-image: url('/img/defense.jpg');
+.profile.caldari {
+  background-image: url('/img/caldari_bg.jpg');
 }
 
-.profile.tank {
-  background-image: url('/img/tank.jpg');
+.profile.gallente {
+  background-image: url('/img/gallente_bg.jpg');
 }
 
-.profile.support {
-  background-image: url('/img/support.jpg');
+.profile.minmatar {
+  background-image: url('/img/minmatar_bg.jpg');
 }
 
 .profile footer {
