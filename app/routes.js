@@ -3,6 +3,7 @@ import {Route} from 'react-router';
 import App from './components/App';
 import Home from './components/Home';
 import Stats from './components/Stats';
+import register from './components/register';
 import Character from './components/Character';
 import CharacterList from './components/CharacterList';
 import AddCharacter from './components/AddCharacter';
