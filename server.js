@@ -34,7 +34,7 @@ app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+app.use(favicon(path.join(__dirname, 'public', 'ow.png')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
@@ -144,25 +144,6 @@ app.put('/api/characters', function(req, res, next) {
     });
 });
 
-/**
- * GET /api/characters/shame
- * Returns 100 lowest ranked characters.
- */
-app.get('/api/characters/shame', function(req, res, next) {
-  Character
-    .find()
-    .sort('-losses')
-    .limit(100)
-    .exec(function(err, characters) {
-      if (err) return next(err);
-      res.send(characters);
-    });
-});
-
-/**
- * GET /api/characters/top
- * Return 100 highest ranked characters. Filter by type, race and bloodline.
- */
 app.get('/api/characters/top', function(req, res, next) {
   var params = req.query;
   var conditions = {};
@@ -188,10 +169,6 @@ app.get('/api/characters/top', function(req, res, next) {
     });
 });
 
-/**
- * GET /api/characters/count
- * Returns the total number of characters.
- */
 app.get('/api/characters/count', function(req, res, next) {
   Character.count({}, function(err, count) {
     if (err) return next(err);
@@ -199,10 +176,6 @@ app.get('/api/characters/count', function(req, res, next) {
   });
 });
 
-/**
- * GET /api/characters/search
- * Looks up a character by name. (case-insensitive)
- */
 app.get('/api/characters/search', function(req, res, next) {
   var characterName = new RegExp(req.query.name, 'i');
 
@@ -217,10 +190,6 @@ app.get('/api/characters/search', function(req, res, next) {
   });
 });
 
-/**
- * GET /api/characters/:id
- * Returns detailed character information.
- */
 app.get('/api/characters/:id', function(req, res, next) {
   var id = req.params.id;
 
@@ -235,10 +204,7 @@ app.get('/api/characters/:id', function(req, res, next) {
   });
 });
 
-/**
- * POST /api/characters
- * Adds new character to the database.
- */
+
 app.post('/api/characters', function(req, res, next) {
   var type = req.body.type;
   var characterName = req.body.name;
@@ -296,7 +262,7 @@ app.post('/api/characters', function(req, res, next) {
               res.send({ message: characterName + ' has been added successfully!' });
             });
           } catch (e) {
-            res.status(404).send({ message: characterName + ' is not a registered citizen of New Eden.' });
+            res.status(404).send({ message: characterName + ' is not a registered Hero of Overwatch.' });
           }
         });
       });
@@ -304,10 +270,6 @@ app.post('/api/characters', function(req, res, next) {
   ]);
 });
 
-/**
- * GET /api/stats
- * Returns characters statistics.
- */
 app.get('/api/stats', function(req, res, next) {
   async.parallel([
       function(callback) {
@@ -348,24 +310,11 @@ app.get('/api/stats', function(req, res, next) {
 
       res.send({
         totalCount: results[0],
-        amarrCount: results[1],
-        caldariCount: results[2],
-        gallenteCount: results[3],
-        minmatarCount: results[4],
-        maleCount: results[5],
-        femaleCount: results[6],
-        totalVotes: results[7],
-        leadingRace: results[8],
-        leadingBloodline: results[9]
       });
     });
 });
 
 
-/**
- * POST /api/report
- * Reports a character. Character is removed after 4 reports.
- */
 app.post('/api/report', function(req, res, next) {
   var characterId = req.body.characterId;
 
