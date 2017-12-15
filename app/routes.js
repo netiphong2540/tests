@@ -10,7 +10,7 @@ import AddCharacter from './components/AddCharacter';
 export default (
   <Route component={App}>
     <Route path='/' component={Home} />
-    <Route path='/stats' component={Stats} />
+    <Route path='/register' component={Register} />
     <Route path='/characters/:id' component={Character} />
     <Route path='/add' component={AddCharacter} />
     <Route path=':category' component={CharacterList}>
