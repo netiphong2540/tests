@@ -96,6 +96,7 @@ class Navbar extends React.Component {
             <li><Link to='/Tank'>Tank</Link></li>
             <li><Link to='/Support'>Support</Link></li>
             <li><Link to='/add'>Add</Link></li>
+             <li><Link to='/register-login'>register-login</Link></li>  
           </ul>
         </div>
       </nav>
