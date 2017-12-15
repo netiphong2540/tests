@@ -5,8 +5,6 @@ import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
 import {Link} from 'react-router';
 import {isEqual} from 'underscore';
-import CharacterListStore from '../stores/CharacterListStore';
-import CharacterListActions from '../actions/CharacterListActions';
 
 import 'antd/dist/antd.css';
 
