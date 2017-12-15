@@ -1,4 +1,3 @@
-// Babel ES6/JSX Compiler
 require('babel-register');
 
 var path = require('path');
@@ -37,10 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, 'public', 'ow.png')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-/**
- * GET /api/characters
- * Returns 2 random characters of the same type that have not been voted yet.
- */
+
 app.get('/api/characters', function(req, res, next) {
   var choices = ['Offense', 'Defense', 'Tank', 'Support'];
   var randomtype = _.sample(choices);
@@ -78,10 +74,7 @@ app.get('/api/characters', function(req, res, next) {
     });
 });
 
-/**
- * PUT /api/characters
- * Update winning and losing count for both characters.
- */
+
 app.put('/api/characters', function(req, res, next) {
   var winner = req.body.winner;
   var loser = req.body.loser;
@@ -357,9 +350,6 @@ app.use(function(err, req, res, next) {
   res.send({ message: err.message });
 });
 
-/**
- * Socket.io stuff.
- */
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var onlineUsers = 0;
