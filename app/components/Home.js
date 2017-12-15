@@ -50,7 +50,7 @@ class Home extends React.Component {
 
     return (
       <div className='container'>
-        <h3 className='text-center'>Click on the portrait. Select your favorite.</h3>
+        <h3 className='text-center'>Click on the hero. Select your winner.</h3>
         <div className='row'>
           {characterNodes}
         </div>
